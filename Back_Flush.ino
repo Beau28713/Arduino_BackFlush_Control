@@ -15,6 +15,9 @@ void setup() {
   pinMode(man_control_switch, INPUT);
   pinMode(valve_control_relay, OUTPUT);
   pinMode(pump_control_relay, OUTPUT);
+
+  digitalWrite(valve_control_relay, HIGH);
+  digitalWrite(pump_control_relay, HIGH);
 }
 
 void loop() {
@@ -35,21 +38,21 @@ void loop() {
 }
 
 void valve_open() {
-  digitalWrite(valve_control_relay, HIGH);
-  delay(4000);
+  digitalWrite(valve_control_relay, LOW);
+  delay(15000);
 }
 
 void valve_close() {
-  digitalWrite(valve_control_relay, LOW);
-  delay(4000);
+  digitalWrite(valve_control_relay, HIGH);
+  delay(15000);
 }
 
 void pump_on() {
-  digitalWrite(pump_control_relay, HIGH);
-  delay(60000);
+  digitalWrite(pump_control_relay, LOW);
+  delay(15000);
 }
 
 void pump_off() {
-  digitalWrite(pump_control_relay, LOW);
-  delay(1000);
+  digitalWrite(pump_control_relay, HIGH);
+  delay(5000);
 }
