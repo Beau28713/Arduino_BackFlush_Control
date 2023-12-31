@@ -62,6 +62,7 @@ void loop() {
   manual_auto_switch_position = digitalRead(manual_auto_control_switch);
 
   if (manual_auto_switch_position == LOW) {
+    lcd.setBacklight(HIGH);
     man_backflush_switch_position = digitalRead(man_backflush_switch);
     lcd.setCursor(0, 0);
     lcd.print("Manual Mode");
@@ -75,6 +76,7 @@ void loop() {
     }
   } 
   else if (manual_auto_switch_position == HIGH) {
+    lcd.setBacklight(LOW);
     lcd.setCursor(0, 0);
     lcd.print("Auto Mode  ");
     if (weekly_timer - prev_time >= weekly_interval) {
